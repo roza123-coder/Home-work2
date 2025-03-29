@@ -1,30 +1,26 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, clearCart } from '../../redux/cartSlice';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart, clearCart } from "../../redux/cartSlice";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart.cart);
-  const totalPrice = useSelector((state) => state.totalPrice);
+  const { items = [], totalPrice = 0 } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (
     <div>
       <h2>Корзина</h2>
-      {cart.length === 0 ? (
-        <p>Корзина пуста</p>
-      ) : (
+      {items.length === 0 ? <p>Корзина пуста</p> : (
         <ul>
-          {cart?.map((item, index) => (
-            <li key={index}>
+          {items.map((item) => (
+            <li key={item.id}>
               {item.name} - {item.price}₽
-              <button onClick={() => dispatch(removeFromCart(item.id))}>
-                Удалить
-              </button>
+              <button onClick={() => dispatch(removeFromCart(item.id))}>Удалить</button>
             </li>
           ))}
         </ul>
       )}
-      <h3>Итого: {totalPrice}₽</h3>
-      <button onClick={() => dispatch(clearCart())}>Очистить корзину</button>
+      <h3>Общая сумма: {totalPrice}₽</h3>
+      {items.length > 0 && <button onClick={() => dispatch(clearCart())}>Очистить корзину</button>}
     </div>
   );
 };
