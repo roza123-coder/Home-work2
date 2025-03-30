@@ -1,24 +1,33 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../../redux/todoSlice';
+  import { useDispatch, useSelector } from "react-redux";
+  import { setFilter } from "../../redux/todoSlice";
 
-const Filter = () => {
-  const dispatch = useDispatch();
-  const filter = useSelector((state) => state.todos.filter);
+  const Filter = () => {
+    const dispatch = useDispatch();
+    const filter = useSelector((state) => state.todos.filter || "all");
 
-  return (
-    <div>
-      {['all', 'active', 'completed']?.map((f) => (
-        <button
-          key={f}
-          onClick={() => dispatch(setFilter(f))}
-          style={{ fontWeight: filter === f ? 'bold' : 'normal' }}
-        >
-          {f}
-        </button>
-      ))}
-    </div>
-  );
-};
+    const handleClick = (filterType) => {
+      dispatch(setFilter(filterType)); 
+    };
 
-export default Filter;
+    const filters = ["all", "active", "completed"];
+
+    return (
+      <div>
+        {filters.map((filterType) => (
+          <button key={filterType} onClick={() => handleClick(filterType)}
+          style={{
+            fontWeight: filter === filterType ? "bold" : "normal",
+          }}>
+           
+            {filterType === "all"
+              ? "Все" 
+              : filterType === "active"
+              ? "Активные"
+              : "Завершенные"}
+          </button>
+        ))}
+      </div>
+    );
+  };
+
+  export default Filter;

@@ -1,34 +1,40 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleTodo, removeTodo } from '../../redux/todoSlice';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTodos, addTodo, deleteTodo } from "../../redux/todoSlice";
 
-const ToDoList = () => {
-  const todos = useSelector((state) => {
-    if (state.todos.filter === 'active')
-      return state.todos.todos.filter((t) => !t.completed);
-    if (state.todos.filter === 'completed')
-      return state.todos.todos.filter((t) => t.completed);
-    return state.todos.todos;
-  });
-
+const TodoList = () => {
   const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos.items);
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch]);
+
+  const handleAdd = () => {
+    const text = prompt("Введите задачу:");
+    if (text) dispatch(addTodo(text));
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm("Удалить эту задачу?")) {
+      dispatch(deleteTodo(id));
+    }
+  };
 
   return (
-    <ul>
-      {todos?.map((todo) => (
-        <li
-          key={todo.id}
-          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-        >
-          {todo.text}
-          <button onClick={() => dispatch(toggleTodo(todo.id))}>Toggle</button>
-          <button onClick={() => dispatch(removeTodo(todo.id))}>Delete</button>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h2>Todo List</h2>
+      <button onClick={handleAdd}>Добавить</button>
+      <ul>
+        {todos?.map((todo) => (
+          <li key={todo.id}>
+            {todo.text}
+            <button onClick={() => handleDelete(todo.id)}>Удалить</button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default ToDoList;
-
-
+export default TodoList;
