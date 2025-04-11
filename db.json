@@ -1,8 +1,68 @@
 {
   "todos": [
     {
-      "id": "2713",
-      "text": "олод",
+      "id": "9183",
+      "text": "екпмкыпмц",
+      "completed": false
+    },
+    {
+      "id": "7ae6",
+      "text": "ратвп",
+      "completed": false
+    },
+    {
+      "id": "ff4e",
+      "text": "певнуирнуе",
+      "completed": false
+    },
+    {
+      "id": "9dc7",
+      "text": "пмапивр",
+      "completed": false
+    },
+    {
+      "id": "a2e9",
+      "text": "епвртрцк",
+      "completed": false
+    },
+    {
+      "id": "9b3c",
+      "text": "припиы",
+      "completed": false
+    },
+    {
+      "id": "4852",
+      "text": "амамвкымк",
+      "completed": false
+    },
+    {
+      "id": "9551",
+      "text": "рдиюмлриюл",
+      "completed": false
+    },
+    {
+      "id": "fd13",
+      "text": "самриоспдбрю",
+      "completed": false
+    },
+    {
+      "id": "73ba",
+      "text": "нрте",
+      "completed": false
+    },
+    {
+      "id": "87d4",
+      "text": "нренв",
+      "completed": false
+    },
+    {
+      "id": "b186",
+      "text": "ренрнертвек",
+      "completed": false
+    },
+    {
+      "id": "8318",
+      "text": "рпртрт",
       "completed": false
     }
   ],
@@ -14,6 +74,46 @@
     },
     {
       "id": "2",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "3",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "4",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "5",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "6",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "7",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "8",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "9",
+      "name": "Кроссовки",
+      "price": 3000
+    },
+    {
+      "id": "10",
       "name": "Кроссовки",
       "price": 3000
     }
